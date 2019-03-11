@@ -1,0 +1,28 @@
+{
+  "name": "random",
+  "version": "1.0.0",
+  "description": "Random generator with simple API.",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublish": "node_modules/babel-cli/bin/babel.js src --out-dir lib",
+    "test": "mocha"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "keywords": [
+    "random",
+    "simple api"
+  ],
+  "author": "Rocky Li",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2"
+  }
+}
