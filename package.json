@@ -1,6 +1,6 @@
 {
   "name": "@rockyli/random",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Random generator with simple API.",
   "main": "lib/index.js",
   "scripts": {
