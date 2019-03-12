@@ -56,3 +56,71 @@ describe('integer()', () => {
   })
 
 })
+
+describe('boolean()', () => {
+  
+  it('returns a boolean', () => {
+    const boolean = random.boolean()
+    expect(boolean).to.be.a('boolean')
+    expect(boolean).to.be.oneOf([true, false])
+  })
+
+})
+
+describe('bytes()', () => {
+  
+  it('returns bytes buffer with length 16', () => {
+    const bytes = random.bytes()
+    expect(bytes).to.be.instanceof(Buffer)
+    expect(...bytes).all.be.a('number')
+    expect(bytes.length).to.equal(16)
+  })
+
+  it('returns bytes buffer with length 256', () => {
+    const bytes = random.bytes(256)
+    expect(bytes).to.be.instanceof(Buffer)
+    expect(...bytes).all.be.a('number')
+    expect(bytes.length).to.equal(256)
+  })
+
+})
+
+describe('string()', () => {
+  
+  it('returns default a random alphanumeric lowercase string with length 16', () => {
+    const length = 16
+    const charset = '0123456789abcdefghijklmnopqrstuvwxyz'
+    const string = random.string()
+    expect(string).to.be.a('string')
+    expect(...string).all.be.oneOf(charset.split(''))
+    expect(string.length).to.equal(length)
+  })
+
+  it('returns default a random alphanumeric string with length 32', () => {
+    const length = 32
+    const charset = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    const string = random.string(length, 'alphanumeric', null)
+    expect(string).to.be.a('string')
+    expect(...string).all.be.oneOf(charset.split(''))
+    expect(string.length).to.equal(length)
+  })
+
+  it('returns default a random hex string with length 64', () => {
+    const length = 64
+    const charset = '0123456789abcdef'
+    const string = random.string(length, 'hex', null)
+    expect(string).to.be.a('string')
+    expect(...string).all.be.oneOf(charset.split(''))
+    expect(string.length).to.equal(length)
+  })
+
+  it('returns default a random custom string with length 16', () => {
+    const length = 16
+    const charset = '!@#$%^&*()_+'
+    const string = random.string(length, charset, null)
+    expect(string).to.be.a('string')
+    expect(...string).all.be.oneOf(charset.split(''))
+    expect(string.length).to.equal(length)
+  })
+
+})
