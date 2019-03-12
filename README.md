@@ -40,9 +40,9 @@ random.string(len = 16, type = 'alphanumeric', capitalization = 'lowercase'); //
 - `boolean()` 
  
 
-- `string(len, charset, capitalization)`
+- `string(len, type, capitalization)`
   - `len` - the length of the random string. (default: 16) [OPTIONAL]
-  - `charset` - define the character set for the string. (default: `alphanumeric`) [OPTIONAL]
+  - `type` - define the character set for the string. (default: `alphanumeric`) [OPTIONAL]
     - `alphanumeric` - [0-9 a-z A-Z]
     - `alphabetic` - [a-z A-Z]
     - `numeric` - [0-9]

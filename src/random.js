@@ -21,9 +21,9 @@ const bytes = (len = 16) => {
   return crypto.randomBytes(len)
 }
 
-const string = (len = 16, charset = 'alphanumeric', capitalization = 'lowercase') => {
+const string = (len = 16, type = 'alphanumeric', capitalization = 'lowercase') => {
   const charset = new Charset()
-  charset.setType(charset)
+  charset.setType(type)
   charset.setCapitalization(capitalization)
   charset.removeUnreadable()
   charset.removeDuplicates()
