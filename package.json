@@ -1,7 +1,7 @@
 {
   "name": "@rockyli/random",
-  "version": "1.0.3",
-  "description": "Random generator with simple API.",
+  "version": "1.0.4",
+  "description": "A lightweight Javascript library to generate random values with simple API",
   "main": "lib/index.js",
   "scripts": {
     "prepublish": "node_modules/babel-cli/bin/babel.js src --out-dir lib",
@@ -23,6 +23,8 @@
     "babel-core": "^6.26.3",
     "babel-preset-es2015": "^6.24.1",
     "chai": "^4.2.0",
+    "chai-datetime": "^1.5.0",
+    "chai-uuid": "^1.0.6",
     "mocha": "^6.0.2"
   },
   "directories": {
@@ -30,7 +32,8 @@
     "test": "test"
   },
   "dependencies": {
-    "array-uniq": "^2.0.0"
+    "array-uniq": "^2.0.0",
+    "uuid": "^3.3.2"
   },
   "repository": {
     "type": "git",

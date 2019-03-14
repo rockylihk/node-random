@@ -1,3 +1,7 @@
+1.0.4 / Mar 14, 2019
+==================
+  * Added random uuid and date method
+
 1.0.3 / Mar 12, 2019
 ==================
   * Updated argument name of string() method

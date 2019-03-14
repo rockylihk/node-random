@@ -1,6 +1,7 @@
 'use strict'
 
 const crypto = require('crypto')
+const uuidv4 = require('uuid/v4')
 const Charset = require('./charset')
 
 const number = (min = 0, max = 100) => {
@@ -36,8 +37,21 @@ const string = (len = 16, type = 'alphanumeric', capitalization = 'lowercase') =
   return randomString
 }
 
+const uuid = () => {
+  return uuidv4()
+}
+
+const date = (min = new Date(0), max = new Date(2147483647000)) => {
+  const randomValue = crypto.randomBytes(1)[0] / 0xff
+  const minTimestamp = min.getTime()
+  const maxTimestamp = max.getTime()
+  return new Date(minTimestamp + randomValue * (maxTimestamp - minTimestamp))
+}
+
 exports.number = number
 exports.integer = integer
 exports.boolean = boolean
 exports.bytes = bytes
 exports.string = string
+exports.uuid = uuid
+exports.date = date

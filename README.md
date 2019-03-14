@@ -2,14 +2,14 @@
 
 [![Build Status](https://travis-ci.org/rockyliyanlok/node-random.svg?branch=master)](https://travis-ci.org/rockyliyanlok/node-random) [![Download Stats](https://img.shields.io/npm/dw/@rockyli/random.svg)](https://github.com/rockyliyanlok/node-random)
 
-Random generator with simple API to help you create random numbers, booleans, bytes and strings.
+A lightweight Javascript library to generate random values with simple API.
 
 ## Installation
 
 To install the random generator, use [npm](http://github.com/npm/npm):
 
 ```
-npm install @rockyli/random
+npm install --save @rockyli/random
 ```
 
 ## Usage
@@ -22,6 +22,9 @@ random.number(min = 0, max = 100); // generate number from 0.0 to 100.0
 random.boolean(); // true or false
 random.bytes(len = 16); // generate cryptographically strong pseudo-random data
 random.string(len = 16, type = 'alphanumeric', capitalization = 'lowercase'); // generate random string
+random.uuid(); // generate random uuid version 4 string
+random.date(); // generate random date between 1970-01-01 00:00:00 and 2038-01-19 03:14:07
+random.date(new Date(Date.UTC(2000, 0, 1, 0, 0, 0)), new Date(Date.UTC(2019, 2, 14, 0, 0, 0))); // generate random date between 2000-01-01 00:00:00 and 2019-03-14 00:00:00
 
 ```
 
@@ -52,7 +55,14 @@ random.string(len = 16, type = 'alphanumeric', capitalization = 'lowercase'); //
     - `lowercase`
     - `uppercase`
     - `null`
+
  
+- `uuid()`
+ 
+ 
+- `date(min, max)`
+  - `min` - the earliest date of random date. (default: new Date(Date.UTC(1970, 0, 1, 0, 0, 0))) [OPTIONAL]
+  - `max` - the latest date of random date. (default: new Date(Date.UTC(2038, 0, 19, 3, 14, 7))) [OPTIONAL]
 
 ## Tests
 

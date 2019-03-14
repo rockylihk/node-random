@@ -4,6 +4,9 @@ const random = require('../src')
 const chai = require('chai')
 const expect = chai.expect
 
+chai.use(require('chai-uuid'))
+chai.use(require('chai-datetime'))
+
 describe('number()', () => {
   
   it('returns random number between 0 to 100', () => {
@@ -121,6 +124,43 @@ describe('string()', () => {
     expect(string).to.be.a('string')
     expect(...string).all.be.oneOf(charset.split(''))
     expect(string.length).to.equal(length)
+  })
+
+})
+
+describe('uuid()', () => {
+  
+  it('returns a random uuid version 4 string', () => {
+    const uuid = random.uuid()
+    expect(uuid).to.be.a.uuid('v4')
+  })
+
+})
+
+describe('date()', () => {
+  
+  it('returns random date between 1970-01-01 00:00:00 and 2038-01-19 03:14:07', () => {
+    const minDate = new Date(Date.UTC(1970, 0, 1, 0, 0, 0))
+    const maxDate = new Date(Date.UTC(2038, 0, 19, 3, 14, 7))
+    const date = random.date()
+    expect(date).all.be.a('date')
+    expect(date).to.withinDate(minDate, maxDate)
+  })
+
+  it('returns random date between 1970-01-01 00:00:00 and current date', () => {
+    const minDate = new Date(Date.UTC(1970, 0, 1, 0, 0, 0))
+    const maxDate = new Date()
+    const date = random.date(minDate, maxDate)
+    expect(date).all.be.a('date')
+    expect(date).to.withinDate(minDate, maxDate)
+  })
+
+  it('returns random date between current date and 2038-01-19 03:14:07', () => {
+    const minDate = new Date()
+    const maxDate = new Date(Date.UTC(2038, 0, 19, 3, 14, 7))
+    const date = random.date(minDate, maxDate)
+    expect(date).all.be.a('date')
+    expect(date).to.withinDate(minDate, maxDate)
   })
 
 })
