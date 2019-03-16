@@ -164,3 +164,29 @@ describe('date()', () => {
   })
 
 })
+
+describe('element()', () => {
+  
+  it('returns null for empty array', () => {
+    const element = random.element([])
+    expect(element).to.be.null
+  })
+  
+  it('returns a random element in a simple integer array', () => {
+    const array = [1, 2, 3, 4, 5]
+    const element = random.element(array)
+    expect(element).to.be.oneOf(array)
+  })
+
+  it('returns a random element in a random string array', () => {
+    let arrayLength = random.integer(1, 10)
+    let stringLength = random.integer(5, 20)
+    let array = []
+    for (let index = 0; index < arrayLength; index++) {
+      array.push(random.string(stringLength))
+    }
+    const element = random.element(array)
+    expect(element).to.be.oneOf(array)
+  })
+
+})

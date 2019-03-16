@@ -48,6 +48,11 @@ const date = (min = new Date(0), max = new Date(2147483647000)) => {
   return new Date(minTimestamp + randomValue * (maxTimestamp - minTimestamp))
 }
 
+const element = (array = []) => {
+  array = Array.isArray(array) ? array : []
+  return array.length > 0 ? array[integer(0, array.length - 1)] : null
+}
+
 exports.number = number
 exports.integer = integer
 exports.boolean = boolean
@@ -55,3 +60,4 @@ exports.bytes = bytes
 exports.string = string
 exports.uuid = uuid
 exports.date = date
+exports.element = element

@@ -24,7 +24,8 @@ random.bytes(len = 16); // generate cryptographically strong pseudo-random data
 random.string(len = 16, type = 'alphanumeric', capitalization = 'lowercase'); // generate random string
 random.uuid(); // generate random uuid version 4 string
 random.date(); // generate random date between 1970-01-01 00:00:00 and 2038-01-19 03:14:07
-random.date(new Date(Date.UTC(2000, 0, 1, 0, 0, 0)), new Date(Date.UTC(2019, 2, 14, 0, 0, 0))); // generate random date between 2000-01-01 00:00:00 and 2019-03-14 00:00:00
+random.date(new Date(Date.UTC(2000, 0, 1, 0, 0, 0)), new Date(Date.UTC(2019, 2, 14, 0, 0, 0))); // generate random date between 
+random.element(array = []); // return random element in provided array
 
 ```
 
@@ -63,6 +64,11 @@ random.date(new Date(Date.UTC(2000, 0, 1, 0, 0, 0)), new Date(Date.UTC(2019, 2, 
 - `date(min, max)`
   - `min` - the earliest date of random date. (default: new Date(Date.UTC(1970, 0, 1, 0, 0, 0))) [OPTIONAL]
   - `max` - the latest date of random date. (default: new Date(Date.UTC(2038, 0, 19, 3, 14, 7))) [OPTIONAL]
+ 
+ 
+- `element(array)`
+  - `array` - array provided for random element. (default: []) [OPTIONAL]
+
 
 ## Tests
 
